@@ -45,7 +45,8 @@ const registerUser = async (req,res) =>{
     } catch (error) {
         return res.status(400).json({
             success:false,
-            message:"failed to register"
+            message:"failed to register",
+            error:error.message
         })
     }
 }
@@ -91,12 +92,41 @@ const login = async(req,res) =>{
     } catch (error) {
         return res.status(400).json({
             success:false,
-            message:"failed to register"
+            message:"failed to login",
+            error:error.message
         })
     }
 }
 
+const logout = async(req,res) => {
+    try {
+        return res.status(200).cookie('token','').json({
+            success:true,
+            message:"Logout successfully"
+        })
+    } catch (error) {
+        return res.status(401).json({
+            success:false,
+            error:error.message
+        })
+    }
+}
+
+const getMe = async(req,res) => {
+    const user = await userModel.findById(req.user.id);
+    return res.status(200).json({
+        success:true,
+        message:"Fetched logged in user details",
+        user:{
+            id:user._id,
+            username:user.username,
+            email:user.email,
+        }
+    })
+}
 module.exports={
     registerUser,
-    login
+    login,
+    logout,
+    getMe
 }
