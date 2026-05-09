@@ -1,9 +1,19 @@
-import React from 'react'
-import {Link , useNavigate} from 'react-router'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { useAuth } from "../hooks/useAuth";
 function Register() {
+  const {loading,handleRegister} = useAuth();
+  const [username, setusername] = useState(null);
+  const [email, setemail] = useState(null);
+  const [password, setpassword] = useState(null);
   const navigate = useNavigate();
-  const submitHandler = (e) => {
+  const submitHandler = async(e) => {
     e.preventDefault();
+    await handleRegister({username,email,password});
+    navigate('/')
+  };
+  if(loading){
+    return <main><h1>Loading....</h1></main>
   }
   return (
     <main>
@@ -12,23 +22,42 @@ function Register() {
         <form onSubmit={submitHandler}>
           <div className="input-group">
             <label htmlFor="username">Username</label>
-            <input type="username" placeholder="Enter username" />
+            <input
+              onChange={(e) => {
+                setusername(e.target.value);
+              }}
+              type="username"
+              placeholder="Enter username"
+            />
           </div>
           <div className="input-group">
             <label htmlFor="email">Email</label>
-            <input type="email" placeholder="Enter email address" />
+            <input
+              onChange={(e) => {
+                setemail(e.target.value);
+              }}
+              type="email"
+              placeholder="Enter email address"
+            />
           </div>
           <div className="input-group">
             <label htmlFor="password">Password</label>
-            <input type="password" placeholder="Enter password" />
+            <input
+              onChange={(e) => {
+                setpassword(e.target.value);
+              }}
+              type="password"
+              placeholder="Enter password"
+            />
           </div>
           <button className="button primary-button">Register</button>
         </form>
-        <p>Already have an account ? <Link to='/Login'>Login</Link></p>
+        <p>
+          Already have an account ? <Link to="/Login">Login</Link>
+        </p>
       </div>
-
     </main>
-  )
+  );
 }
 
 export default Register;
