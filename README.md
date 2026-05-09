@@ -338,9 +338,9 @@ This project is licensed under the **MIT License** — feel free to use, modify,
 
 **MD Ashiq Ilahi**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername)
-[![Portfolio](https://img.shields.io/badge/Portfolio-7F77DD?style=for-the-badge&logo=google-chrome&logoColor=white)](https://yourportfolio.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mdashiqilahi)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ashiq012)
+[![Portfolio](https://img.shields.io/badge/Portfolio-7F77DD?style=for-the-badge&logo=google-chrome&logoColor=white)](https://mdportfolio-pi.vercel.app/))
 
 ---
 
